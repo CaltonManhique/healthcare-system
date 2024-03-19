@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation Page</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+<div class="container">
+    <h2>Appointment Confirmation</h2>
+
+    <p>Patient name: <span th:text="${appointmentManager.patient.patientName}"/></p>
+    <p>Patient Email: <span th:text="${appointmentManager.patient.patientEmail}"/></p>
+    <p>Date: <span th:text="${appointmentManager.appointment.date}"/></p>
+
+    <a th:href="@{/}">Back</a>
+</div>
+
+<form action="#" th:action="@{/logout}" method="POST">
+    <input type="submit" value="Logout"/>
+</form>
+</body>
+</html>

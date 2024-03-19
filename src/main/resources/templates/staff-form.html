@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient management</title>
+</head>
+<body>
+<h2>Patient management</h2>
+<br><br>
+<div>
+    <form th:action="@{/patient-records}" method="get">
+        <br>
+        <button type="submit">View patient records</button>
+        <br>
+    </form>
+    <form th:action="@{/appointment}" method="get">
+        <br>
+        <button type="submit">Appointments</button>
+        <br>
+    </form>
+    <form th:action="@{/patient-records}" method="get">
+        <br>
+        <button type="submit">Update Patient Info</button>
+        <br>
+    </form>
+    <br><br>
+    <form action="#" th:action="@{/logout}" method="POST">
+        <input type="submit" value="Logout"/>
+    </form>
+</div>
+</body>
+</html>

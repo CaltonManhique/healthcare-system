@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Management System</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+<div class="container">
+    <h2>Healthcare Management System</h2>
+    <form th:action="@{/createDoctor}" th:object="${adminModel}" method="POST">
+        <h3>Create medical staff information</h3>
+
+        <div>
+            <div class="input-group">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" th:field="*{user.email}">
+                <span th:if="${#fields.hasErrors('user.email')}" th:errors="*{user.email}" class="error"></span>
+            </div>
+            <div class="input-group">
+                <label for="fullName">Full name:</label>
+                <input type="text" id="fullName" name="fullName" th:field="*{doctor.name}">
+            </div>
+            <div class="input-group">
+                <label for="speciality">Speciality:</label>
+                <select id="speciality" name="speciality" th:field="*{doctor.speciality}">
+                    <option value="neurology">Neurology</option>
+                    <option value="cardiology">Cardiology</option>
+                    <option value="psychiatry">Psychiatry</option>
+                    <option value="internalMedicine">Internal medicine</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <input type="radio" th:field="*{role.authority}" value="ROLE_STAFF" th:checked="${true}">Medical Staff</input>
+            <input type="radio" th:field="*{role.authority}" value="ROLE_SENSITIVE">Doctor (Sensitive)</input>
+            <input type="radio" th:field="*{role.authority}" value="ROLE_ADMIN">Administrative</input>
+        </div>
+
+        <div class="input-group">
+            <label for="password">Password (memorise the password and send to the user):</label>
+            <input type="text" id="password" name="password" th:field="*{user.password}">
+        </div>
+
+        <button type="submit">Create</button>
+    </form>
+
+</div>
+</body>
+</html>

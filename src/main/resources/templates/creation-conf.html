@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation Page</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+<div class="container">
+    <h2>Staff Management</h2>
+
+    <p>Doctor's name: <span th:text="${adminModel.doctor.name}"/></p>
+    <p>Doctor's Email: <span th:text="${adminModel.user.email}"/></p>
+    <p>Doctor's speciality: <span th:text="${adminModel.doctor.speciality}"/></p>
+    <p>Role: <span th:text="${adminModel.role.authority}"/></p>
+
+    <a th:href="@{/admin}">Back</a>
+</div>
+
+<form action="#" th:action="@{/logout}" method="POST">
+    <input type="submit" value="Logout"/>
+</form>
+</body>
+</html>

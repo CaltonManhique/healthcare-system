@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+<div class="container">
+    <h2>Healthcare Management System</h2>
+    <form th:action="@{/createAppointment}" th:object="${appointmentManager}" method="POST">
+        <div>
+            <div class="input-group">
+                <label for="docEmail">Doctor's Email:</label>
+                <input type="text" id="docEmail" name="docEmail" th:field="*{patient.email}">
+                <span th:if="${#fields.hasErrors('patient.email')}" th:errors="*{patient.email}" class="error"></span>
+            </div>
+            <div class="input-group">
+                <label for="patientEmail">Patient's email:</label>
+                <input type="text" id="patientEmail" name="patientEmail" th:field="*{patient.patientEmail}">
+                <span th:if="${#fields.hasErrors('patient.email')}" th:errors="*{patient.email}" class="error"></span>
+            </div>
+            <div class="input-group">
+                <label for="patientName">Patient's Name:</label>
+                <input type="text" id="patientName" name="patientName" th:field="*{patient.patientName}">
+            </div>
+            <div class="input-group">
+                <label for="patientType">Patient's Type:</label>
+                <input type="text" id="patientType" name="patientType" th:field="*{patient.patientType}">
+            </div>
+        </div>
+        <div>
+            <div class="input-group">
+                <label for="medical_staff_id">Doctor's id:</label>
+                <input type="text" id="medical_staff_id" name="medical_staff_id" th:field="*{appointment.medicalStaffId}">
+            </div>
+            <div>
+                <label>Appointment date: </label>
+                <input type="date" th:field="*{appointment.date}">
+            </div>
+        </div>
+
+<br><br>
+        <button type="submit">Create</button>
+    </form>
+
+</div>
+</body>
+</html>

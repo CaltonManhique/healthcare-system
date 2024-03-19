@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update a Review</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<h1>Update a Patient</h1>
+
+<form th:action="@{/edit/{id}(id=${patient.id})}" th:object="${patient}" th:method="POST">
+
+    <div>
+        <div class="input-group">
+            <label for="docEmail">Doctor Email:</label>
+            <input type="text" id="docEmail" name="docEmail" th:field="*{email}">
+        </div>
+        <div class="input-group">
+            <label for="patientEmail">Patient email:</label>
+            <input type="text" id="patientEmail" name="patientEmail" th:field="*{patientEmail}">
+        </div>
+        <div class="input-group">
+            <label for="patientName">Patient Name:</label>
+            <input type="text" id="patientName" name="patientName" th:field="*{patientName}">
+        </div>
+        <div class="input-group">
+            <label for="patientType">Patient Type:</label>
+            <input type="text" id="patientType" name="patientType" th:field="*{patientType}">
+        </div>
+    </div>
+    <br><br>
+
+
+    <input type="submit" value="Update">
+
+</form>
+
+<br><br>
+
+<form action="#" th:action="@{/logout}" method="POST">
+    <input type="submit" value="Logout"/>
+</form>
+
+</body>
+</html>
